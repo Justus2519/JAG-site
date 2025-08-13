@@ -1,10 +1,16 @@
-function PlayMenu() {
+//Must be imported to 'menu-types.ts'
+
+function PlayMenu({menuSwitch}: {menuSwitch: (btn: string) => void}) {
     return (
         <div className='menu'>
-                <h2><button>Mode 1</button></h2>
-                <h2><button>Mode 2</button></h2>
-                <h2><button>Mode 3</button></h2>
-                <h3><button>Back</button></h3>
+                <h2><button>Game Mode 1</button></h2>
+                <h2><button>Game Mode 2</button></h2>
+                <h2><button>Game Mode 3</button></h2>
+                <h3>
+                    <button onClick={()=>{menuSwitch('Menu')}}>
+                        Back
+                    </button>
+                </h3>
         </div>
     )
 }

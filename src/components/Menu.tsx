@@ -1,10 +1,19 @@
+//Must be imported to 'menu-types.ts'
 
-function Menu(){
+function Menu({menuSwitch}: {menuSwitch: (btn: string) => void}){
     return(
         <div className='menu'>
                 <h1>Minesweeper</h1>
-                <h2><button>Play</button></h2>
-                <h3><button>Settings</button></h3>
+                <h2>
+                        <button onClick={()=>{menuSwitch('PlayMenu')}}>
+                                Play
+                        </button>
+                </h2>
+                <h3>
+                        <button onClick={()=>{menuSwitch('Settings')}}>
+                                Settings
+                        </button>
+                </h3>
         </div>
         )
 }
