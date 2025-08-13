@@ -1,0 +1,35 @@
+.game {
+  background-color: #2b362e;
+}
+
+.menu {
+  text-align: center;
+}
+
+.bar {
+  background-color: #9e9e9e;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+h1 {
+  color: #2df700;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #2df700;
+}
+button:active {
+  background-color: #2df700;
+}
