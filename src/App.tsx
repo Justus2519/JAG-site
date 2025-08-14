@@ -1,14 +1,14 @@
+import React from "react";
 
 import './App.css';
-import React from "react";
 
 import {menus} from './menu-types';
 
 
 function App() {
-    const [menuType, setMenu] = React.useState(menus[0].type); 
+    const [menuType, setMenu] = React.useState(menus[0].type);
     return (
-        <div className="game">
+        <div className='game lg-game'>
             <div className="bar">
                 <div><p>Time: 00</p></div>
                 <div><p>middle</p></div>
@@ -20,6 +20,9 @@ function App() {
                     menuType === type && <Component menuSwitch={setMenu} key={type} />
                 )
             }
+            <footer>
+                <div><p>HOME</p></div>
+            </footer>
         </div>
     )
 }

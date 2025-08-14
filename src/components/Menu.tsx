@@ -1,4 +1,6 @@
 //Must be imported to 'menu-types.ts'
+//menuSwitch is a prop that is set to be the setMenu function
+//So when there is menuSwitch('some menu component') that essentially means setMenu('some menu component').
 
 function Menu({menuSwitch}: {menuSwitch: (btn: string) => void}){
     return(
