@@ -1,21 +1,42 @@
-//Must be imported to 'menu-types.ts'
+import '../styles/Board.css';
+
+function boardGen(board: string){
+
+}
 
 function Board({
-    menuSwitch,
-    boardType,
+    size,
+    genType,
+    mode
 }: {
-    menuSwitch: (btn: string) => void;
-    boardType: number;
+    size?: string;
+    genType?: string;
+    mode?: string;
 }) {
-    switch(boardType){
-        case 1:
-            console.log(boardType);
+    const tiles: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    switch(size){
+        case 'small'://SMALL BOARD
+            return(
+                <div className='board-sm'>
+                    {tiles.map((tile: number, index: number)=><div className='tile' key={index}>{tile}</div>)}
+                </div>
+            )
+        case 'medium':
+            return(
+                <div className='board-md'>
+                    {tiles.map((tile: number, index: number)=><div className='tile' key={index}>{tile}</div>)}
+                </div>
+            )
+        case 'large':
+            return(
+                <div className='board-lg'>
+                    {tiles.map((tile: number, index: number)=><div className='tile' key={index}>{tile}</div>)}
+                </div>
+            )
     }
     return(
         <h3>
-            <button onClick={()=>{menuSwitch('Menu')}}>
-                    Quit
-            </button>
+            Game
         </h3>
     )
 }

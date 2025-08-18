@@ -1,19 +1,39 @@
-//Must be imported to 'menu-types.ts'
+import {GameSizes} from '../settings-and-modes';
 
-function SizeMenu({menuSwitch}: {menuSwitch: (btn: string) => void}) {
+function SizeMenu({
+    menuSwitch,
+    sizeSwitch
+}: {
+    menuSwitch: (btn: string) => void;
+    sizeSwitch: (btn: string) => void;
+}) {
+    function goToBoard(sz: string){
+        sizeSwitch(sz);
+        menuSwitch("Board");
+    }
     return (
-        <div className='menu'>
-                <h1>Choose a board size</h1>
-                <h2><button>Small</button></h2>
-                <h2><button>Medium</button></h2>
-                <h2><button>Large</button></h2>
-                <h3>
-                    <button onClick={()=>{menuSwitch('PlayMenu')}}>
-                        Back
-                    </button>
-                </h3>
+        <div className="menu">
+            <h1>Choose a board size</h1>
+            <h2>
+                <button onClick={()=>goToBoard(GameSizes.Small)}>Small</button>
+            </h2>
+            <h2>
+                <button onClick={()=>goToBoard(GameSizes.Medium)}>Medium</button>
+            </h2>
+            <h2>
+                <button onClick={()=>goToBoard(GameSizes.Large)}>Large</button>
+            </h2>
+            <h3>
+                <button
+                    onClick={() => {
+                        menuSwitch("PlayMenu");
+                    }}
+                >
+                    Back
+                </button>
+            </h3>
         </div>
-    )
+    );
 }
 
 export default SizeMenu;

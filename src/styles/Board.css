@@ -1,0 +1,47 @@
+.tile{
+    font-family: inherit;
+    border-style: solid;
+    border-width:1px;
+    text-align: center;
+}
+
+
+/*=================================BOARDS====================================*/
+/*Small Board*/
+.board-sm{
+  --tile-dimension: 70px;
+  --row-length: 4;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--tile-dimension), 1fr));
+  max-width: calc(var(--row-length) * var(--tile-dimension));
+  padding: 0.9em;
+  font-size: 3em;
+  font-weight: 500;
+}
+
+/*Medium Board*/
+.board-md{
+  --tile-dimension: 40px;
+  --row-length: 10;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--tile-dimension), 1fr));
+  max-width: calc(var(--row-length) * var(--tile-dimension));
+  padding: 0.9em;
+  font-size: 3em;
+  font-weight: 500;
+}
+
+/*Large Board*/
+.board-lg{
+  --tile-dimension: 10px;
+  --row-length: 20;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--tile-dimension), 1fr));
+  max-width: calc(var(--row-length) * var(--tile-dimension));
+  padding: 0.9em;
+  font-size: 3em;
+  font-weight: 500;
+}

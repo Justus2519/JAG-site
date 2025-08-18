@@ -1,24 +1,29 @@
-//Must be imported to 'menu-types.ts'
+import {GameModes} from '../settings-and-modes';
 
-function PlayMenu({menuSwitch}: {menuSwitch: (btn: string) => void}) {
-    function chooseGameMode(n: number){
-        console.log(n);
+function PlayMenu(
+    {menuSwitch, modeSwitch}: 
+    {
+        menuSwitch: (btn: string) => void,
+        modeSwitch: (btn: string) => void
+    }) {
+    function chooseGameMode(gm: string){
+        modeSwitch(gm);
         menuSwitch('SizeMenu');
     }
     return (
         <div className='menu'>
                 <h2>
-                    <button onClick={()=>{chooseGameMode(1)}}>
-                        Game Mode 1
+                    <button onClick={()=>{chooseGameMode(GameModes.Classic)}}>
+                        Classic
                     </button>
                 </h2>
                 <h2>
-                    <button onClick={()=>{chooseGameMode(2)}}>
+                    <button>
                         Game Mode 2
                     </button>
                 </h2>
                 <h2>
-                    <button onClick={()=>{chooseGameMode(3)}}>
+                    <button>
                         Game Mode 3
                     </button>
                 </h2>
