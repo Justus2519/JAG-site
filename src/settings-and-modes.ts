@@ -4,9 +4,9 @@ export const GameModes = {
 }
 
 export const GameSizes = {
-    Small: 'small',
-    Medium: 'medium',
-    Large: 'large'
+    Small: 4,
+    Medium: 10,
+    Large: 18
 }
 
 export const GenModes = {

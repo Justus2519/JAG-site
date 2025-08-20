@@ -1,22 +1,31 @@
 import React from 'react';
-
+import {TileObject} from '../game-logic';
 
 
 function Tile(
-    {neighbours}:
-    {neighbours: number}
+    {tiles, id, firstClick, gameStart}:
+    {
+        tiles: TileObject[],
+        id: number,
+        firstClick: boolean,
+        gameStart: () => void
+    }
 ){
     const [tileState, setTile] = React.useState('covered');
-    const tileClick = ()=>{
-        if(tileState==='covered'){
-            if(neighbours===0) setTile('empty');
-            else setTile('uncovered');
-        }
-        if(neighbours===-1){
-            setTile('bomb');
+    const tileClick = (event: React.MouseEvent)=>{
+        if(event.type==='contextMenu') console.log('Right click!');
+        else{
+            if(!firstClick) gameStart();
+            if(tileState==='covered'){
+                if(tiles[id].nCount===0) setTile('empty');
+                else setTile('uncovered');
+            }
+            if(tiles[id].bomb){
+                setTile('bomb');
+            }
         }
     }
-    return <div className={`tile tile-${tileState}`} onClick={tileClick}>{neighbours > 0 && neighbours}</div>
+    return <div className={`tile tile-${tileState}`} onClick={tileClick} onContextMenu={tileClick}>{tiles[id].nCount}</div>
 }
 
 

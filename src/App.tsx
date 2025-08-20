@@ -19,7 +19,7 @@ import SizeMenu from "./components/SizeMenu";
 import Board from "./components/Board";
 
 function App() {
-    const [menuType, setMenu] = React.useState("Menu"); //MENU TYPE STATE VAR
+    const [menuType, setMenu] = React.useState("Menu"); //MENU TYPE STATE VARS
     const [gameMode, setMode] = React.useState(GameModes.Classic);
     const [gen, setGenType] = React.useState(GenModes.Classic);
     const [gameSize, setSize] = React.useState(GameSizes.Small);
@@ -38,11 +38,11 @@ function App() {
         { type: "Settings", component: <Settings menuSwitch={setMenu}/>},
         { 
             type: "Themes", 
-            component: <Themes  menuSwitch={setMenu} themeSwitch={setTheme}/>},
+            component: <Themes  menuSwitch={setMenu} themeSwitch={setTheme} themeSelected={theme}/>},
         { type: "Credits", component: <Credits  menuSwitch={setMenu}/>},
         { 
             type: "BoardGen", 
-            component: <BoardGen  menuSwitch={setMenu} genSwitch={setGenType}/>
+            component: <BoardGen  menuSwitch={setMenu} genSwitch={setGenType} genSelected={gen}/>
         },
         {
             type: "Board",

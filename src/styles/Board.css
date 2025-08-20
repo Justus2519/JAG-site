@@ -12,39 +12,45 @@
 /*=================================BOARDS====================================*/
 /*Small Board*/
 .board-sm{
-  --tile-dimension: 70px;
-  --row-length: 4;
+  --tile-dimension: 78px;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--tile-dimension), 1fr));
   max-width: calc(var(--row-length) * var(--tile-dimension));
   padding: 0.9em;
-  font-size: 3em;
+  font-size: 2.9em;
   font-weight: 500;
+}
+.board-sm .tile{
+  border-width:3px;
 }
 
 /*Medium Board*/
 .board-md{
   --tile-dimension: 40px;
-  --row-length: 10;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--tile-dimension), 1fr));
   max-width: calc(var(--row-length) * var(--tile-dimension));
   padding: 0.9em;
-  font-size: 3em;
-  font-weight: 500;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.board-md .tile{
+  border-width:3px;
 }
 
 /*Large Board*/
 .board-lg{
-  --tile-dimension: 10px;
-  --row-length: 20;
+  --tile-dimension: 26px;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--tile-dimension), 1fr));
   max-width: calc(var(--row-length) * var(--tile-dimension));
-  padding: 0.9em;
-  font-size: 3em;
-  font-weight: 500;
+  padding: 0.5em;
+  font-size: 0.9em;
+  font-weight: 700;
+}
+.board-lg .tile{
+  border-width:1.5px;
 }

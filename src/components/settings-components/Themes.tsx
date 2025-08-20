@@ -2,15 +2,16 @@
 import {ThemeNames} from '../../settings-and-modes';
 
 function Themes(
-    {menuSwitch, themeSwitch}: 
+    {menuSwitch, themeSwitch, themeSelected}: 
     {
         menuSwitch: (btn: string) => void,
-        themeSwitch: (btn: string) => void
+        themeSwitch: (btn: string) => void,
+        themeSelected: string
     }) {
     return (
         <div className='menu'>
             {ThemeNames.map(({shorthand, name})=>
-                <h2><button onClick={()=>themeSwitch(shorthand)}>{`${name}`}</button></h2>
+                <h2><button onClick={()=>themeSwitch(shorthand)}>{`${themeSelected===shorthand ? '>': ''}${name}`}</button></h2>
             )}
             <h3>
                 <button onClick={()=>{menuSwitch('Settings')}}>

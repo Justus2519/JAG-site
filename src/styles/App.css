@@ -1,8 +1,8 @@
 .game {
   display: flex;
   flex-direction: column;
-  height: 500px;
-  width: 500px;
+  height: 600px;
+  width: 600px;
 }
 
 .menu{
@@ -75,7 +75,8 @@ Prefix: lg
 }
 /*TILES*/
 .lg-game .tile{
-  border-color: #2b362e;
+  border-color: #23b902;
+  border-style: inset;
 }
 .lg-game .tile-covered{
   background-color:#27cc02;
@@ -91,6 +92,7 @@ Prefix: lg
 }
 .lg-game .tile-bomb{
   background-color:red;
+  color: red;
 }
 
 /* =================== Icy Blue ================================
