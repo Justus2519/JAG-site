@@ -1,6 +1,6 @@
 export const GameModes = {
     Classic: 'classic',
-    mode2: 'mode2',
+    Schrodinger: 'schrodinger',
 }
 
 export const GameSizes = {
@@ -9,9 +9,10 @@ export const GameSizes = {
     Large: 'large'
 }
 
-const GenModes = {
+export const GenModes = {
     Classic: 'classic',
-    SchrodingerMS: 'Shrodinger'
+    Random: 'random',
+    Simple: 'simple'
 }
 
 export const ThemeNames = [

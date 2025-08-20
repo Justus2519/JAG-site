@@ -1,43 +1,31 @@
 import '../styles/Board.css';
-
-function boardGen(board: string){
-
-}
+import generation from '../game-logic';
+import Tile from './Tile';
 
 function Board({
     size,
     genType,
     mode
 }: {
-    size?: string;
-    genType?: string;
-    mode?: string;
+    size: string;
+    genType: string;
+    mode: string;
 }) {
-    const tiles: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    const tiles: number[] = generation(size, genType);
+    let sizeName = 'board-sm';
     switch(size){
-        case 'small'://SMALL BOARD
-            return(
-                <div className='board-sm'>
-                    {tiles.map((tile: number, index: number)=><div className='tile' key={index}>{tile}</div>)}
-                </div>
-            )
         case 'medium':
-            return(
-                <div className='board-md'>
-                    {tiles.map((tile: number, index: number)=><div className='tile' key={index}>{tile}</div>)}
-                </div>
-            )
+            sizeName = 'board-md'
+            break;
         case 'large':
-            return(
-                <div className='board-lg'>
-                    {tiles.map((tile: number, index: number)=><div className='tile' key={index}>{tile}</div>)}
-                </div>
-            )
+            sizeName = 'board-lg'
+            break;
     }
     return(
-        <h3>
-            Game
-        </h3>
+        <div className={sizeName}>
+            {tiles.map((tile: number, index: number)=>
+            <Tile neighbours={tile} key={index}></Tile>)}
+        </div>
     )
 }
 

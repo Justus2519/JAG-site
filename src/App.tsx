@@ -4,6 +4,9 @@ import "./styles/App.css";
 
 //Settings types
 import {GameSizes} from './settings-and-modes';
+import {GenModes} from './settings-and-modes';
+import {GameModes} from './settings-and-modes';
+import {ThemeNames} from './settings-and-modes';
 
 //Game and Menu Component Imports
 import PlayMenu from "./components/PlayMenu";
@@ -17,10 +20,10 @@ import Board from "./components/Board";
 
 function App() {
     const [menuType, setMenu] = React.useState("Menu"); //MENU TYPE STATE VAR
-    const [gameMode, setMode] = React.useState('classic');
-    const [gen, setGenType] = React.useState('classic');
+    const [gameMode, setMode] = React.useState(GameModes.Classic);
+    const [gen, setGenType] = React.useState(GenModes.Classic);
     const [gameSize, setSize] = React.useState(GameSizes.Small);
-    const [theme, setTheme] = React.useState('lg');
+    const [theme, setTheme] = React.useState(ThemeNames[0].shorthand);
 
     //Menu type definitions
     const menus = [

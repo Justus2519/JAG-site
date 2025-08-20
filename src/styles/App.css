@@ -73,10 +73,24 @@ Prefix: lg
 .lg-game button:active {
   background-color:#2df700;
 }
+/*TILES*/
 .lg-game .tile{
-  background-color:#2df700;
   border-color: #2b362e;
+}
+.lg-game .tile-covered{
+  background-color:#27cc02;
+  color: #27cc02;
+}
+.lg-game .tile-uncovered{
+  background-color:#2df700;
   color: black;
+}
+.lg-game .tile-empty{
+  background-color: #2df700;
+  color: #2df700;
+}
+.lg-game .tile-bomb{
+  background-color:red;
 }
 
 /* =================== Icy Blue ================================
@@ -90,20 +104,18 @@ Prefix: ib
   background-color: #dce0e3;
 }
 
-.ib-game h1 {
-  color: #0084ff;
-}
 
-.ib-game p {
-  color: #002699;
+.ib-game p, .ib-game h1{
+  color: #021a63;
 }
 
 .ib-game button {
-  color: #2aa7f5;
-  background-color: #0a59f6;
+  color: #021a63;
+  background-color: #286ffb;
 }
 .ib-game button:hover {
   border-color: #023f78;
+  color: #023f78;
 }
 .ib-game button:active {
   background-color:#023f78;
