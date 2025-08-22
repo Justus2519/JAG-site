@@ -15,6 +15,12 @@ export class TileObject {
         this.nCount = neighbours;
         this.bomb = neighbours===-1;
     }
+    public uncover(): void{
+        this.covered = false;
+    }
+    public flag(): void{
+        this.flagged = !this.flagged;
+    }
 }
 
 export function emptyGeneration(size: number){
@@ -24,7 +30,7 @@ export function emptyGeneration(size: number){
     }
     return tiles;
 }
-export function generation(size: number, gen: string){
+export function generation(size: number, gen: string): number[]{
     switch(gen){
         case GenModes.Classic:
             return classicGeneration(size);
@@ -34,7 +40,7 @@ export function generation(size: number, gen: string){
     return [];
 }
 
-function classicGeneration(size: number){
+function classicGeneration(size: number): number[]{
     switch(size){
         case GameSizes.Small:
             return [
@@ -81,7 +87,7 @@ function classicGeneration(size: number){
     return [];
 }
 
-function randomGeneration(size: number){
+function randomGeneration(size: number): number[]{
     let tiles: number[] = new Array(size*size);
     //Generate Mines
     for(let i = 0; i<size*size; i++){

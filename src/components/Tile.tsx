@@ -25,6 +25,7 @@ function Tile(
             }
         }
     }
+    
     return <div className={`tile tile-${tileState}`} onClick={tileClick} onContextMenu={tileClick}>{tiles[id].nCount}</div>
 }
 
