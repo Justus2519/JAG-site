@@ -17,17 +17,22 @@ function Board({
     genType: string;
     mode: string;
 }) {
-    const [firstClick, setFC] = React.useState(false);
+    const [firstClick, setFC] = React.useState(true);
     const [tiles, tilesSet] = React.useState(emptyGeneration(size));
-    function gameStart() {
-        tilesSet(
-            generation(size, genType).map(
-                (neighbours: number, index: number) =>
-                    new TileObject(index, neighbours)
-            )
-        );
-        setFC(true);
+
+    function gameStart(index: number) {
+        let newTiles = generation(size, genType);
+        newTiles[index].uncover();
+        tilesSet(newTiles);
+        setFC(false);
     }
+
+    function tileAffect(tile: TileObject, index: number){
+        let clonedTiles = tiles.slice();
+        clonedTiles[index] = tile;
+        tilesSet(clonedTiles);
+    }
+
     let sizeName = "board-sm";
     switch (size) {
         case GameSizes.Medium:
@@ -53,6 +58,7 @@ function Board({
                     key={index}
                     id={index}
                     firstClick={firstClick}
+                    tileAffect={tileAffect}
                     gameStart={gameStart}
                 ></Tile>
             ))}

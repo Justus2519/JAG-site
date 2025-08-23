@@ -3,30 +3,34 @@ import {TileObject} from '../game-logic';
 
 
 function Tile(
-    {tiles, id, firstClick, gameStart}:
+    {tiles, id, firstClick, tileAffect, gameStart}:
     {
         tiles: TileObject[],
         id: number,
         firstClick: boolean,
-        gameStart: () => void
+        tileAffect: (tile: TileObject, index: number) => void,
+        gameStart: (index: number) => void,
     }
 ){
-    const [tileState, setTile] = React.useState('covered');
+    const tile = tiles[id].tileCopy();
     const tileClick = (event: React.MouseEvent)=>{
-        if(event.type==='contextMenu') console.log('Right click!');
+        if(event.type === 'contextMenu') tile.flag();
         else{
-            if(!firstClick) gameStart();
-            if(tileState==='covered'){
-                if(tiles[id].nCount===0) setTile('empty');
-                else setTile('uncovered');
-            }
-            if(tiles[id].bomb){
-                setTile('bomb');
+            if(tiles[id].covered){
+                tile.uncover();
             }
         }
+        if(firstClick) gameStart(id);
+        else tileAffect(tile, id);
     }
-    
-    return <div className={`tile tile-${tileState}`} onClick={tileClick} onContextMenu={tileClick}>{tiles[id].nCount}</div>
+    let tileState = 'covered';
+    if(!tile.covered){
+        tileState = 'uncovered';
+        if(tile.bomb) tileState='bomb';
+        if(tile.nCount===0) tileState='empty';
+    }
+
+    return <div className={`tile tile-${tileState}`} onClick={tileClick} onContextMenu={tileClick}>{tiles[id].covered ? '?': tiles[id].nCount}</div>
 }
 
 
