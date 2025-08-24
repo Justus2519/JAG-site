@@ -24,6 +24,11 @@ function App() {
     const [gen, setGenType] = React.useState(GenModes.Classic);
     const [gameSize, setSize] = React.useState(GameSizes.Small);
     const [theme, setTheme] = React.useState(ThemeNames[0].shorthand);
+    const [timer, setTimer] = React.useState(0);
+    const [flags, setFlags] = React.useState(0);
+
+    //Timer and Flags
+
 
     //Menu type definitions
     const menus = [
@@ -53,13 +58,13 @@ function App() {
         <div className={`game ${theme}-game`}>
             <div className="bar">
                 <div>
-                    <p>Time: 00</p>
+                    <p>{`Time: ${timer}`}</p>
                 </div>
                 <div>
-                    <p>middle</p>
+                    <p>M</p>
                 </div>
                 <div>
-                    <p>Flags: 00</p>
+                    <p>{`Flags: ${flags}`}</p>
                 </div>
             </div>
             <div className="board">

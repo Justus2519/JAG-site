@@ -14,7 +14,10 @@ function Tile(
 ){
     const tile = tiles[id].tileCopy();
     const tileClick = (event: React.MouseEvent)=>{
-        if(event.type === 'contextMenu') tile.flag();
+        if(event.type === 'contextMenu'){
+            tile.flag();
+            console.log('flagged');
+        }
         else{
             if(tiles[id].covered){
                 tile.uncover();

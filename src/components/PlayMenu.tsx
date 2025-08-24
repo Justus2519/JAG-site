@@ -19,12 +19,12 @@ function PlayMenu(
                 </h2>
                 <h2>
                     <button>
-                        Game Mode 2
+                        Coming Soon
                     </button>
                 </h2>
                 <h2>
                     <button>
-                        Game Mode 3
+                        Coming Soon
                     </button>
                 </h2>
                 <h3>

@@ -7,17 +7,11 @@
 
 .menu{
   text-align: center;
-  border-color:#2df700;
-  border-style: solid;
-  border-width: 1px;
 }
 
 .bar {
   display: flex;
   justify-content: space-evenly;
-  border-color:#2df700;
-  border-style: solid;
-  border-width: 1px;
 }
 
 .lg-h1 {
@@ -39,9 +33,6 @@ footer {
   padding: 1em;
   margin-top:auto;
   text-align: center;
-  border-color:#2df700;
-  border-style: solid;
-  border-width: 1px;
 }
 /*==================================THEMES===================================*/
 /* =================== Lean 'N' Green =========================

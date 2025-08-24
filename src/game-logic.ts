@@ -51,9 +51,9 @@ function classicGeneration(size: number): TileObject[]{
     switch(size){
         case GameSizes.Small:
             let temp = [
-                -1, 2, 1, 1,
-                1, 2, -1, 1, 
-                1, 2, 2, 1, 
+                -1, 2, -1, 2,
+                1, 2, 1, 1, 
+                1, 1, 1, 0, 
                 1, -1, 1, 0
             ];
             for(let i= 0; i<size*size; i++){
@@ -106,14 +106,57 @@ function classicGeneration(size: number): TileObject[]{
     return [];
 }
 
-function randomGeneration(size: number): number[]{
-    let tiles: number[] = new Array(size*size);
-    //Generate Mines
-    for(let i = 0; i<size*size; i++){
-        tiles[i] = Math.random() * -1;
+
+
+//TO DO:
+
+//Returns a randomly generated TileObject array of length size*size see example arrays in classicGeneration(...)
+function randomGeneration(size: number): TileObject[]{
+    return [];
+}
+
+//Returns a randomly generated TileObject array of length size*size solvable by Single Point Algorithm (see page 25 in Algorithms for Minesweeper Game Grid Generation)
+function simpleGeneration(size: number): TileObject[]{
+    return [];
+}
+
+export function autofill(size: number, index: number, tiles: TileObject[]): TileObject[]{
+    tiles[index].uncover();
+    if(tiles[index].nCount!=0) return tiles;
+    let newIndex = index - 1;//LEFT
+    if((index%size)>0 && tiles[newIndex].covered){
+        tiles = autofill(size, newIndex, tiles);
     }
-    //Calculate Neighbours for each tile
-    
+    newIndex = index + 1;//RIGHT
+    if((index%size)+1<size && tiles[newIndex].covered){
+        tiles = autofill(size, newIndex, tiles);
+    }
+    newIndex = index - size;//UP
+    if((newIndex>0 && tiles[newIndex].covered)){
+        tiles = autofill(size, newIndex, tiles);
+    }
+    newIndex = index + size;//DOWN
+    if(newIndex<size*size && tiles[newIndex].covered){
+        tiles = autofill(size, newIndex, tiles);
+    }
+    newIndex = index - size - 1; //UP RIGHT
+    if((index%size)+1<size && newIndex>0){
+        if(tiles[newIndex].covered) tiles = autofill(size, newIndex, tiles);
+    }
+    newIndex = index - size - 1; //UP LEFT
+    if((index%size)-1>=0 && newIndex>0){
+        if(tiles[newIndex].covered) tiles = autofill(size, newIndex, tiles);
+    }
+    newIndex = index + size - 1; //DOWN LEFT
+    if((index%size)-1>=0 && newIndex<size*size){
+        if(tiles[newIndex].covered) tiles = autofill(size, newIndex, tiles);
+    }
+    newIndex = index + size + 1; //DOWN RIGHT
+    if((index%size)+1<size && newIndex<size*size){
+        if(tiles[newIndex].covered) tiles = autofill(size, newIndex, tiles);
+    }
+
+        
     return tiles;
 }
 
