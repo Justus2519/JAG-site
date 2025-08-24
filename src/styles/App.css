@@ -113,14 +113,122 @@ Prefix: ib
 .ib-game button:active {
   background-color:#023f78;
 }
+.ib-game .tile{
+  border-color: #7f94ee;
+  border-style: inset;
+}
+.ib-game .tile-covered{
+  background-color:#286ffb;
+  color: #286ffb;
+}
+.ib-game .tile-uncovered{
+  background-color:#286ffb;
+  color: #021a63;
+}
+.ib-game .tile-empty{
+  background-color: #6394f5;
+  color: #6394f5;
+}
+.ib-game .tile-bomb{
+  background-color:#9269e9;
+  color: #9269e9;
+}
 
 /* =================== Red Velvet ================================
 Prefix: rv
 */
+.rv-game {
+  background-color: #d50e0e;
+}
+
+.rv-game .bar, .rv-game footer {
+  background-color: #c5a6a6;
+}
+
+
+.rv-game p, .rv-game h1{
+  color: #670f00;
+}
+
+.rv-game button {
+  color: #670f00;
+  background-color: #ca8787;
+}
+.rv-game button:hover {
+  border-color: #ffdddd;
+  color: #ffdddd;
+}
+.rv-game button:active {
+  background-color:#670f00;
+}
+.rv-game .tile{
+  border-color: #460101;
+  border-style: inset;
+}
+.rv-game .tile-covered{
+  background-color:#a50202;
+  color: #a50202;
+}
+.rv-game .tile-uncovered{
+  background-color:#e35555;
+  color: #a50202;
+}
+.rv-game .tile-empty{
+  background-color: #e35555;
+  color: #e35555;
+}
+.rv-game .tile-bomb{
+  background-color:#fff700;
+  color: #fff700;
+}
 
 /* =================== Boiler Plater Gray ================================
 Prefix: bpg
 */
+.bpg-game {
+  background-color: #e8e8e8;
+}
+
+.bpg-game .bar, .bpg-game footer {
+  background-color: #a3a3a3;
+}
+
+
+.bpg-game p, .bpg-game h1{
+  color: #3b3b3b;
+}
+
+.bpg-game button {
+  color: #3b3b3b;
+  background-color: #8f8f8f;
+}
+.bpg-game button:hover {
+  border-color: #696969;
+  color: #696969;
+}
+.bpg-game button:active {
+  background-color:#333333;
+}
+.bpg-game .tile{
+  border-color: #353535;
+  border-style: inset;
+}
+.bpg-game .tile-covered{
+  background-color:#909090;
+  color: #909090;
+}
+.bpg-game .tile-uncovered{
+  background-color:#aeaeae;
+  color: #3b3b3b;
+}
+.bpg-game .tile-empty{
+  background-color: #aeaeae;
+  color: #aeaeae;
+}
+.bpg-game .tile-bomb{
+  background-color:#6e0101;
+  color: #6e0101;
+}
 
 /*BOARD POSITIONING*/
 .board {
