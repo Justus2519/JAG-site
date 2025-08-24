@@ -108,18 +108,6 @@ function classicGeneration(size: number): TileObject[]{
 
 
 
-//TO DO:
-
-//Returns a randomly generated TileObject array of length size*size see example arrays in classicGeneration(...)
-function randomGeneration(size: number): TileObject[]{
-    return [];
-}
-
-//Returns a randomly generated TileObject array of length size*size solvable by Single Point Algorithm (see page 25 in Algorithms for Minesweeper Game Grid Generation)
-function simpleGeneration(size: number): TileObject[]{
-    return [];
-}
-
 export function autofill(size: number, index: number, tiles: TileObject[]): TileObject[]{
     tiles[index].uncover();
     if(tiles[index].nCount!=0) return tiles;
@@ -158,5 +146,26 @@ export function autofill(size: number, index: number, tiles: TileObject[]): Tile
 
         
     return tiles;
+}
+
+export function gameCheck(tiles: TileObject[]):boolean{
+    for(let i = 0; i<tiles.length; i++){
+        if(tiles[i].covered && !tiles[i].bomb)
+            return false;
+    }
+    return true;
+}
+
+
+//TO DO:
+
+//Returns a randomly generated TileObject array of length size*size see example arrays in classicGeneration(...)
+function randomGeneration(size: number): TileObject[]{
+    return [];
+}
+
+//Returns a randomly generated TileObject array of length size*size solvable by Single Point Algorithm (see page 25 in Algorithms for Minesweeper Game Grid Generation)
+function simpleGeneration(size: number): TileObject[]{
+    return [];
 }
 

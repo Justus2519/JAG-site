@@ -21,3 +21,10 @@ export const ThemeNames = [
     {shorthand: 'rv', name:'Red Velvet'},
     {shorthand: 'bpg', name:'Boiler Plate Gray'},
 ]
+
+export const GameStates = {
+    Won: 'Won',
+    Lost: 'Lost',
+    Fresh: 'Fresh',
+    InProgress:  'InProgress'
+}

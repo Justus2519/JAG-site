@@ -6,8 +6,10 @@ import { emptyGeneration } from "../game-logic";
 import Tile from "./Tile";
 import { TileObject } from "../game-logic";
 import { autofill } from "../game-logic";
+import { gameCheck } from "../game-logic";
 
 import { GameSizes } from "../settings-and-modes";
+import { GameStates } from "../settings-and-modes";
 
 function Board({
     size,
@@ -18,14 +20,14 @@ function Board({
     genType: string,
     mode: string,
 }) {
-    const [firstClick, setFC] = React.useState(true);
+    const [gameState, setGameSt] = React.useState(GameStates.Fresh);
     const [tiles, tilesSet] = React.useState(emptyGeneration(size));
 
     function gameStart(index: number) {
         let newTiles = generation(size, genType);
         newTiles = autofill(size, index, newTiles);
         tilesSet(newTiles);
-        setFC(false);
+        setGameSt(GameStates.InProgress);
     }
     function gameLose(){
         //Game lose function. Resets timer and flags
@@ -36,6 +38,7 @@ function Board({
         let clonedTiles = tiles.slice();
         clonedTiles[index] = tile;
         clonedTiles = autofill(size, index, clonedTiles);
+        if(gameCheck(clonedTiles)) setGameSt(GameStates.Won);
         tilesSet(clonedTiles);
     }
 
@@ -47,6 +50,9 @@ function Board({
         case GameSizes.Large:
             sizeName = "board-lg";
             break;
+    }
+    if(gameState===GameStates.Won){
+        return <h1>YOU WON</h1>
     }
     return (
         <div
@@ -63,7 +69,7 @@ function Board({
                     tiles={tiles}
                     key={index}
                     id={index}
-                    firstClick={firstClick}
+                    gameState={gameState}
                     tileAffect={tileAffect}
                     gameStart={gameStart}
                 ></Tile>

@@ -1,13 +1,15 @@
 import React from 'react';
 import {TileObject} from '../game-logic';
 
+import { GameStates } from "../settings-and-modes";
+
 
 function Tile(
-    {tiles, id, firstClick, tileAffect, gameStart}:
+    {tiles, id, gameState, tileAffect, gameStart}:
     {
         tiles: TileObject[],
         id: number,
-        firstClick: boolean,
+        gameState: string,
         tileAffect: (tile: TileObject, index: number) => void,
         gameStart: (index: number) => void,
     }
@@ -23,7 +25,7 @@ function Tile(
                 tile.uncover();
             }
         }
-        if(firstClick) gameStart(id);
+        if(gameState===GameStates.Fresh) gameStart(id);
         else tileAffect(tile, id);
     }
     let tileState = 'covered';
