@@ -6,7 +6,12 @@
 }
 
 .menu{
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  position:relative;
+  align-items: center;
+  width:100%;
 }
 
 .bar {
@@ -21,7 +26,7 @@
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.5em 1.2em;
+  padding: 0.4em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -29,11 +34,49 @@ button {
   transition: border-color 0.25s;
 }
 
+.context-button-box {
+  display: flex;
+  flex-direction: row;
+}
+.context-button {
+  font-family:'Times New Roman', Times, serif;
+  font-weight:600;
+}
+
+.popup {
+  position:absolute;
+  top: 70%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height:100%;
+  background-color: rgba(159, 159, 159, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.popup-inner {
+  transform: translate(0%, 50%);
+  width:50%;
+  height:50%;
+  background-color: white;
+}
+.popup-p {
+  color: black !important;
+}
+
+
 footer {
   padding: 1em;
   margin-top:auto;
   text-align: center;
 }
+
+
+
 /*==================================THEMES===================================*/
 /* =================== Lean 'N' Green =========================
 Prefix: lg
