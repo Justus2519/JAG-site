@@ -89,7 +89,7 @@ Prefix: lg
   background-color: #535353;
 }
 
-.lg-game h1 {
+.lg-game h1, .lg-game a:hover {
   color: #2df700;
 }
 
@@ -128,6 +128,12 @@ Prefix: lg
   background-color:red;
   color: red;
 }
+.lg-game a {
+  font-weight: 500;
+  color: #64e8ff;
+  text-decoration: inherit;
+}
+
 
 /* =================== Icy Blue ================================
 Prefix: ib
@@ -141,7 +147,7 @@ Prefix: ib
 }
 
 
-.ib-game p, .ib-game h1{
+.ib-game p, .ib-game h1, .ib-game  a:hover{
   color: #021a63;
 }
 
@@ -176,7 +182,11 @@ Prefix: ib
   background-color:#9269e9;
   color: #9269e9;
 }
-
+.ib-game a {
+  font-weight: 500;
+  color: #c4eaf0;
+  text-decoration: inherit;
+}
 /* =================== Red Velvet ================================
 Prefix: rv
 */
@@ -189,7 +199,8 @@ Prefix: rv
 }
 
 
-.rv-game p, .rv-game h1{
+.rv-game p, .rv-game h1, .rv-game a:hover{
+  font-weight:500;
   color: #670f00;
 }
 
@@ -224,6 +235,11 @@ Prefix: rv
   background-color:#fff700;
   color: #fff700;
 }
+.rv-game a {
+  font-weight: 500;
+  color: #f0c9c4;
+  text-decoration: inherit;
+}
 
 /* =================== Boiler Plater Gray ================================
 Prefix: bpg
@@ -237,7 +253,7 @@ Prefix: bpg
 }
 
 
-.bpg-game p, .bpg-game h1{
+.bpg-game p, .bpg-game h1, .bpg-game a:hover{
   color: #3b3b3b;
 }
 
@@ -271,6 +287,11 @@ Prefix: bpg
 .bpg-game .tile-bomb{
   background-color:#6e0101;
   color: #6e0101;
+}
+.bpg-game a {
+  font-weight: 500;
+  color: #000000;
+  text-decoration: inherit;
 }
 
 /*BOARD POSITIONING*/

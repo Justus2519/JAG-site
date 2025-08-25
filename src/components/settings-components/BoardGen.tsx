@@ -59,7 +59,7 @@ function BoardGen({
                 <p className='popup-p'>Randomly generates mines. May lead to unsolvable game boards.</p>
             </Popup>
             <Popup trigger={info===GenModes.Simple} setInfo={setInfo}>
-                <p className='popup-p'>A simple generation algorithm which always guarantees a solvable game at the cost of diverse boards</p>
+                <p className='popup-p'>A simple generation algorithm which always guarantees a solvable game at the cost of diverse boards.</p>
             </Popup>
             <h3>
                 <button
