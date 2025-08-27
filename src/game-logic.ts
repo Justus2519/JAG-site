@@ -148,6 +148,7 @@ export function autofill(size: number, index: number, tiles: TileObject[]): Tile
     return tiles;
 }
 
+//Check if game is won
 export function gameCheck(tiles: TileObject[]):boolean{
     for(let i = 0; i<tiles.length; i++){
         if(tiles[i].covered && !tiles[i].bomb)

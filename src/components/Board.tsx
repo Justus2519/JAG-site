@@ -15,10 +15,16 @@ function Board({
     size,
     genType,
     mode,
+    startTimer,
+    stopTimer,
+    setFlags
 }: {
     size: number,
     genType: string,
     mode: string,
+    startTimer: ()=>void,
+    stopTimer: ()=>void,
+    setFlags: (num: number) => void
 }) {
     const [gameState, setGameSt] = React.useState(GameStates.Fresh);
     const [tiles, tilesSet] = React.useState(emptyGeneration(size));
@@ -28,17 +34,27 @@ function Board({
         newTiles = autofill(size, index, newTiles);
         tilesSet(newTiles);
         setGameSt(GameStates.InProgress);
+        startTimer();
     }
     function gameLose(){
         //Game lose function. Resets timer and flags
+        setGameSt(GameStates.Lost);
+        stopTimer();
     }
 
 
     function tileAffect(tile: TileObject, index: number){
+        if(tile.bomb){
+            gameLose();
+            return;
+        }
         let clonedTiles = tiles.slice();
         clonedTiles[index] = tile;
         clonedTiles = autofill(size, index, clonedTiles);
-        if(gameCheck(clonedTiles)) setGameSt(GameStates.Won);
+        if(gameCheck(clonedTiles)){
+            setGameSt(GameStates.Won)
+            stopTimer();
+        };
         tilesSet(clonedTiles);
     }
 
@@ -53,6 +69,9 @@ function Board({
     }
     if(gameState===GameStates.Won){
         return <h1>YOU WON</h1>
+    }
+    if(gameState===GameStates.Lost){
+        return <h1>YOU LOST</h1>
     }
     return (
         <div

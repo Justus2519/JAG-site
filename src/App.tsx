@@ -1,4 +1,4 @@
-import React from "react";
+import {useState, useEffect} from "react";
 
 import "./styles/App.css";
 
@@ -19,16 +19,32 @@ import SizeMenu from "./components/SizeMenu";
 import Board from "./components/Board";
 
 function App() {
-    const [menuType, setMenu] = React.useState("Menu"); //MENU TYPE STATE VARS
-    const [gameMode, setMode] = React.useState(GameModes.Classic);
-    const [gen, setGenType] = React.useState(GenModes.Classic);
-    const [gameSize, setSize] = React.useState(GameSizes.Small);
-    const [theme, setTheme] = React.useState(ThemeNames[0].shorthand);
-    const [timer, setTimer] = React.useState(0);
-    const [flags, setFlags] = React.useState(0);
+    const [menuType, setMenu] = useState("Menu"); //MENU TYPE STATE VARS
+    const [gameMode, setMode] = useState(GameModes.Classic);
+    const [gen, setGenType] = useState(GenModes.Classic);
+    const [gameSize, setSize] = useState(GameSizes.Small);
+    const [theme, setTheme] = useState(ThemeNames[0].shorthand);
+    const [timer, setTimer] = useState(0);
+    const [timerRunning, setTimerRunning] = useState(false);
+    const [flags, setFlags] = useState(0);
 
     //Timer and Flags
+    function startTimer(){
+        setTimerRunning(true);
+    };
+    function stopTimer(){
+        setTimerRunning(false);
+        setTimer(0);
+    };
+    useEffect(()=>{
+        let intervalId:number;
+        if(timerRunning) intervalId = setInterval(()=>{setTimer(timer+1)}, 1000);
+        return ()=>clearInterval(intervalId);
+    }, [timerRunning, timer])
 
+    if(timerRunning && menuType!='Board'){
+        stopTimer();
+    }
 
     //Menu type definitions
     const menus = [
@@ -51,7 +67,7 @@ function App() {
         },
         {
             type: "Board",
-            component: <Board size={gameSize} genType={gen} mode={gameMode}/>
+            component: <Board size={gameSize} genType={gen} mode={gameMode} startTimer={startTimer} stopTimer={stopTimer} setFlags={setFlags}/>
         }
     ];
     return (
