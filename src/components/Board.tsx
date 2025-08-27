@@ -44,12 +44,16 @@ function Board({
 
 
     function tileAffect(tile: TileObject, index: number){
-        if(tile.bomb){
+        if(tile.bomb && !tile.covered){
             gameLose();
-            return;
+            return false;
         }
         let clonedTiles = tiles.slice();
         clonedTiles[index] = tile;
+        if(tile.covered){//Means tile was flagged
+            tilesSet(clonedTiles);
+            return false;
+        }
         clonedTiles = autofill(size, index, clonedTiles);
         if(gameCheck(clonedTiles)){
             setGameSt(GameStates.Won)

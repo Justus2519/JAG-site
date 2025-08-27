@@ -1,5 +1,6 @@
-import {TileObject} from '../game-logic';
+import React from "react";
 
+import {TileObject} from '../game-logic';
 import { GameStates } from "../settings-and-modes";
 
 
@@ -21,12 +22,19 @@ function Tile(
         if(gameState===GameStates.Fresh) gameStart(id);
         else tileAffect(tile, id);
     }
-    function tileFlag(){
-        tile.flag();
-        console.log('flagged');
+    function tileFlag(e: React.MouseEvent<HTMLDivElement, MouseEvent>){
+        e.preventDefault();
+        if(e.button===2){
+            tile.flag();
+        }
         tileAffect(tile, id);
     }
     let tileState = 'covered';
+    if(tile.flagged)
+        return <div className="tile tile-covered" onContextMenu={tileFlag}>
+            🚩
+        </div>
+    
     if(!tile.covered){
         tileState = 'uncovered';
         if(tile.bomb) tileState='bomb';
