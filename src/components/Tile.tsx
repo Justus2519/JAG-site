@@ -1,4 +1,3 @@
-import React from 'react';
 import {TileObject} from '../game-logic';
 
 import { GameStates } from "../settings-and-modes";
@@ -15,18 +14,17 @@ function Tile(
     }
 ){
     const tile = tiles[id].tileCopy();
-    const tileClick = (event: React.MouseEvent)=>{
-        if(event.type === 'contextMenu'){
-            tile.flag();
-            console.log('flagged');
-        }
-        else{
-            if(tiles[id].covered){
-                tile.uncover();
-            }
+    function tileClick(){
+        if(tiles[id].covered){
+            tile.uncover();
         }
         if(gameState===GameStates.Fresh) gameStart(id);
         else tileAffect(tile, id);
+    }
+    function tileFlag(){
+        tile.flag();
+        console.log('flagged');
+        tileAffect(tile, id);
     }
     let tileState = 'covered';
     if(!tile.covered){
@@ -35,7 +33,7 @@ function Tile(
         if(tile.nCount===0) tileState='empty';
     }
 
-    return <div className={`tile tile-${tileState}`} onClick={tileClick} onContextMenu={tileClick}>{tiles[id].covered ? '?': tiles[id].nCount}</div>
+    return <div className={`tile tile-${tileState}`} onClick={tileClick} onContextMenu={tileFlag}>{tiles[id].covered ? '?': tiles[id].nCount}</div>
 }
 
 
