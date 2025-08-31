@@ -53,7 +53,7 @@ function BoardGen({
                 </h2>
             </div>
             <Popup trigger={info===GenModes.Classic} setInfo={setInfo}>
-                <p className='popup-p'>Uses a sophisticated generation algorithm to create a solvable but random Minesweeper board. Not currently implemented</p>
+                <p className='popup-p'>Not currently implemented</p>
             </Popup>
             <Popup trigger={info===GenModes.Random} setInfo={setInfo}>
                 <p className='popup-p'>Very hard. Randomly generates mines. Will often lead to unsolvable game boards.</p>

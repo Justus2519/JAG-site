@@ -23,7 +23,7 @@ import Board from "./components/Board";
 function App() {
     const [menuType, setMenu] = useState("Menu"); //MENU TYPE STATE VARS
     const [gameMode, setMode] = useState(GameModes.Classic);
-    const [gen, setGenType] = useState(GenModes.Classic);
+    const [gen, setGenType] = useState(GenModes.Simple);
     const [gameSize, setSize] = useState(GameSizes.Small);
     const [theme, setTheme] = useState(ThemeNames[0].shorthand);
     const [timer, setTimer] = useState(0);
