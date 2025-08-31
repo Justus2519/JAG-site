@@ -4,9 +4,10 @@ export const GameModes = {
 }
 
 export const GameSizes = {
-    Small: 4,
-    Medium: 10,
-    Large: 18
+    //[row length, tile-dimension in px]
+    Small: [4, 78],
+    Medium: [10, 40],
+    Large: [18, 26]
 }
 
 export const GenModes = {
@@ -27,4 +28,10 @@ export const GameStates = {
     Lost: 'Lost',
     Fresh: 'Fresh',
     InProgress:  'InProgress'
+}
+
+export const FlagCountActions = {
+    Reset: 1,
+    Add: 2,
+    Subtract: 3
 }

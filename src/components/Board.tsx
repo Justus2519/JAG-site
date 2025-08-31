@@ -10,6 +10,7 @@ import { gameCheck } from "../game-logic";
 
 import { GameSizes } from "../settings-and-modes";
 import { GameStates } from "../settings-and-modes";
+import { FlagCountActions } from "../settings-and-modes";
 
 function Board({
     size,
@@ -17,21 +18,21 @@ function Board({
     mode,
     startTimer,
     stopTimer,
-    setFlags
+    changeFlags
 }: {
-    size: number,
+    size: number[],
     genType: string,
     mode: string,
     startTimer: ()=>void,
     stopTimer: ()=>void,
-    setFlags: (num: number) => void
+    changeFlags: (num: number) => void
 }) {
     const [gameState, setGameSt] = React.useState(GameStates.Fresh);
-    const [tiles, tilesSet] = React.useState(emptyGeneration(size));
+    const [tiles, tilesSet] = React.useState(emptyGeneration(size[0]));
 
     function gameStart(index: number) {
-        let newTiles = generation(size, genType);
-        newTiles = autofill(size, index, newTiles);
+        let newTiles = generation(index, size[0], genType);
+        newTiles = autofill(size[0], index, newTiles);
         tilesSet(newTiles);
         setGameSt(GameStates.InProgress);
         startTimer();
@@ -39,6 +40,7 @@ function Board({
     function gameLose(){
         //Game lose function. Resets timer and flags
         setGameSt(GameStates.Lost);
+        changeFlags(FlagCountActions.Reset);
         stopTimer();
     }
 
@@ -51,23 +53,26 @@ function Board({
         let clonedTiles = tiles.slice();
         clonedTiles[index] = tile;
         if(tile.covered){//Means tile was flagged
+            if(tile.flagged) changeFlags(FlagCountActions.Add);
+            else changeFlags(FlagCountActions.Subtract)
             tilesSet(clonedTiles);
             return false;
         }
-        clonedTiles = autofill(size, index, clonedTiles);
+        clonedTiles = autofill(size[0], index, clonedTiles);
         if(gameCheck(clonedTiles)){
             setGameSt(GameStates.Won)
+            changeFlags(FlagCountActions.Reset);
             stopTimer();
         };
         tilesSet(clonedTiles);
     }
 
     let sizeName = "board-sm";
-    switch (size) {
-        case GameSizes.Medium:
+    switch (size[0]) {
+        case GameSizes.Medium[0]:
             sizeName = "board-md";
             break;
-        case GameSizes.Large:
+        case GameSizes.Large[0]:
             sizeName = "board-lg";
             break;
     }
@@ -83,7 +88,8 @@ function Board({
             style={
                 {
                     // Inject as CSS variable
-                    "--row-length": size,
+                    "--row-length": size[0],
+                    "--tile-dimension": `${size[1]}px`
                 } as React.CSSProperties
             }
         >
@@ -95,6 +101,7 @@ function Board({
                     gameState={gameState}
                     tileAffect={tileAffect}
                     gameStart={gameStart}
+                    iSize={size[1]}
                 ></Tile>
             ))}
         </div>

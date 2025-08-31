@@ -12,7 +12,6 @@
 /*=================================BOARDS====================================*/
 /*Small Board*/
 .board-sm{
-  --tile-dimension: 78px;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--tile-dimension), 1fr));
@@ -27,7 +26,6 @@
 
 /*Medium Board*/
 .board-md{
-  --tile-dimension: 40px;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--tile-dimension), 1fr));
@@ -42,7 +40,6 @@
 
 /*Large Board*/
 .board-lg{
-  --tile-dimension: 26px;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--tile-dimension), 1fr));

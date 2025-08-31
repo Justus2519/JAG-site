@@ -5,9 +5,9 @@ function SizeMenu({
     sizeSwitch
 }: {
     menuSwitch: (btn: string) => void;
-    sizeSwitch: (btn: number) => void;
+    sizeSwitch: (btn: number[]) => void;
 }) {
-    function goToBoard(sz: number){
+    function goToBoard(sz: number[]){
         sizeSwitch(sz);
         menuSwitch("Board");
     }

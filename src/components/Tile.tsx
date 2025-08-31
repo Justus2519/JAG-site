@@ -5,13 +5,14 @@ import { GameStates } from "../settings-and-modes";
 
 
 function Tile(
-    {tiles, id, gameState, tileAffect, gameStart}:
+    {tiles, id, gameState, tileAffect, gameStart, iSize}:
     {
         tiles: TileObject[],
         id: number,
         gameState: string,
         tileAffect: (tile: TileObject, index: number) => void,
         gameStart: (index: number) => void,
+        iSize: number
     }
 ){
     const tile = tiles[id].tileCopy();
@@ -32,7 +33,7 @@ function Tile(
     let tileState = 'covered';
     if(tile.flagged)
         return <div className="tile tile-covered" onContextMenu={tileFlag}>
-            🚩
+            🏴
         </div>
     
     if(!tile.covered){

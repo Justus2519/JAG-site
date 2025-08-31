@@ -7,6 +7,7 @@ import {GameSizes} from './settings-and-modes';
 import {GenModes} from './settings-and-modes';
 import {GameModes} from './settings-and-modes';
 import {ThemeNames} from './settings-and-modes';
+import { FlagCountActions } from "./settings-and-modes";
 
 //Game and Menu Component Imports
 import PlayMenu from "./components/PlayMenu";
@@ -17,6 +18,7 @@ import Credits from "./components/settings-components/Credits";
 import BoardGen from "./components/settings-components/BoardGen";
 import SizeMenu from "./components/SizeMenu";
 import Board from "./components/Board";
+
 
 function App() {
     const [menuType, setMenu] = useState("Menu"); //MENU TYPE STATE VARS
@@ -45,6 +47,19 @@ function App() {
     if(timerRunning && menuType!='Board'){
         stopTimer();
     }
+    if(flags>0 && menuType!='Board'){
+        setFlags(0);
+    }
+
+    function changeFlags(action: number){
+        if(action===FlagCountActions.Reset){
+            setFlags(0);
+        }
+        else if(action===FlagCountActions.Add){
+            setFlags(flags + 1);
+        }
+        else setFlags(flags - 1);
+    }
 
     //Menu type definitions
     const menus = [
@@ -67,7 +82,7 @@ function App() {
         },
         {
             type: "Board",
-            component: <Board size={gameSize} genType={gen} mode={gameMode} startTimer={startTimer} stopTimer={stopTimer} setFlags={setFlags}/>
+            component: <Board size={gameSize} genType={gen} mode={gameMode} startTimer={startTimer} stopTimer={stopTimer} changeFlags={changeFlags}/>
         }
     ];
     return (
