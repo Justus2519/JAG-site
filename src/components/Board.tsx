@@ -36,6 +36,11 @@ function Board({
         tilesSet(newTiles);
         setGameSt(GameStates.InProgress);
         startTimer();
+        let flags = 0;
+        newTiles.forEach((square)=>{
+            if(square.bomb) flags++;
+        });
+        changeFlags(flags);
     }
     function gameLose(){
         //Game lose function. Resets timer and flags
@@ -53,8 +58,8 @@ function Board({
         let clonedTiles = tiles.slice();
         clonedTiles[index] = tile;
         if(tile.covered){//Means tile was flagged
-            if(tile.flagged) changeFlags(FlagCountActions.Add);
-            else changeFlags(FlagCountActions.Subtract)
+            if(tile.flagged) changeFlags(FlagCountActions.Subtract);
+            else changeFlags(FlagCountActions.Add)
             tilesSet(clonedTiles);
             return false;
         }

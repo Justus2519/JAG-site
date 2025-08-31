@@ -58,7 +58,10 @@ function App() {
         else if(action===FlagCountActions.Add){
             setFlags(flags + 1);
         }
-        else setFlags(flags - 1);
+        else if (action===FlagCountActions.Subtract){
+            setFlags(flags - 1);
+        }
+        else setFlags(action);
     }
 
     //Menu type definitions

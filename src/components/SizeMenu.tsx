@@ -2,10 +2,10 @@ import {GameSizes} from '../settings-and-modes';
 
 function SizeMenu({
     menuSwitch,
-    sizeSwitch
+    sizeSwitch,
 }: {
-    menuSwitch: (btn: string) => void;
-    sizeSwitch: (btn: number[]) => void;
+    menuSwitch: (btn: string) => void,
+    sizeSwitch: (btn: number[]) => void,
 }) {
     function goToBoard(sz: number[]){
         sizeSwitch(sz);

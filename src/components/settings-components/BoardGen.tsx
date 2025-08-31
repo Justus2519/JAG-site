@@ -53,13 +53,13 @@ function BoardGen({
                 </h2>
             </div>
             <Popup trigger={info===GenModes.Classic} setInfo={setInfo}>
-                <p className='popup-p'>Uses a sophisticated generation algorithm to create a solvable but random Minesweeper board</p>
+                <p className='popup-p'>Uses a sophisticated generation algorithm to create a solvable but random Minesweeper board. Not currently implemented</p>
             </Popup>
             <Popup trigger={info===GenModes.Random} setInfo={setInfo}>
-                <p className='popup-p'>Very hard. Randomly generates mines. Will lead to unsolvable game boards.</p>
+                <p className='popup-p'>Very hard. Randomly generates mines. Will often lead to unsolvable game boards.</p>
             </Popup>
             <Popup trigger={info===GenModes.Simple} setInfo={setInfo}>
-                <p className='popup-p'>A simple generation algorithm which always guarantees a solvable game at the cost of diverse boards.</p>
+                <p className='popup-p'>A simple generation algorithm which always guarantees a solvable game at the cost of diverse boards and more advanced problem solving.</p>
             </Popup>
             <h3>
                 <button

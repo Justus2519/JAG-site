@@ -31,7 +31,7 @@ export const GameStates = {
 }
 
 export const FlagCountActions = {
-    Reset: 1,
-    Add: 2,
-    Subtract: 3
+    Reset: 0,
+    Add: -1,
+    Subtract: -2
 }
