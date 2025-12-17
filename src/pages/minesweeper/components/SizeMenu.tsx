@@ -5,9 +5,9 @@ function SizeMenu({
     sizeSwitch,
 }: {
     menuSwitch: (btn: string) => void,
-    sizeSwitch: (btn: number[]) => void,
+    sizeSwitch: (btn: typeof GameSizes.Small) => void,
 }) {
-    function goToBoard(sz: number[]){
+    function goToBoard(sz: typeof GameSizes.Small){
         sizeSwitch(sz);
         menuSwitch("Board");
     }

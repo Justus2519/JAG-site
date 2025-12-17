@@ -5,14 +5,13 @@ import { GameStates } from "../settings-and-modes";
 
 
 function Tile(
-    {tiles, id, gameState, tileAffect, gameStart, iSize}:
+    {tiles, id, gameState, tileAffect, gameStart}:
     {
         tiles: TileObject[],
         id: number,
         gameState: string,
         tileAffect: (tile: TileObject, index: number) => void,
         gameStart: (index: number) => void,
-        iSize: number
     }
 ){
     const tile = tiles[id].tileCopy();
@@ -25,6 +24,7 @@ function Tile(
     }
     function tileFlag(e: React.MouseEvent<HTMLDivElement, MouseEvent>){
         e.preventDefault();
+        if(tile.schrodinger) return;
         if(e.button===2){
             tile.flag();
         }
@@ -42,7 +42,7 @@ function Tile(
         if(tile.nCount===0) tileState='empty';
     }
 
-    return <div className={`tile tile-${tileState}`} onClick={tileClick} onContextMenu={tileFlag}>{tiles[id].covered ? '?': tiles[id].nCount}</div>
+    return <div className={`tile tile-${tileState}`} onClick={tileClick} onContextMenu={tileFlag}>{tiles[id].covered||tiles[id].schrodinger ? '?': tiles[id].nCount}</div>
 }
 
 

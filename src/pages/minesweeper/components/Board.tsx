@@ -2,13 +2,15 @@ import React from "react";
 
 import "../styles/Board.css";
 import { generation } from "../game-logic";
-import { emptyGeneration } from "../game-logic";
-import Tile from "./Tile";
+import { emptyGeneration } from "../game-logic"; //Generates board with no bombs
 import { TileObject } from "../game-logic";
-import { autofill } from "../game-logic";
+import { autofill } from "../game-logic"; //digs adjacent 0 squares
 import { gameCheck } from "../game-logic";
 
+import Tile from "./Tile";
+
 import { GameSizes } from "../settings-and-modes";
+import { GameModes } from "../settings-and-modes";
 import { GameStates } from "../settings-and-modes";
 import { FlagCountActions } from "../settings-and-modes";
 
@@ -20,7 +22,7 @@ function Board({
     stopTimer,
     changeFlags
 }: {
-    size: number[],
+    size: typeof GameSizes.Small,
     genType: string,
     mode: string,
     startTimer: ()=>void,
@@ -28,19 +30,29 @@ function Board({
     changeFlags: (num: number) => void
 }) {
     const [gameState, setGameSt] = React.useState(GameStates.Fresh);
-    const [tiles, tilesSet] = React.useState(emptyGeneration(size[0]));
+    const [tiles, tilesSet] = React.useState(emptyGeneration(size.Rows));
 
-    function gameStart(index: number) {
-        let newTiles = generation(index, size[0], genType);
-        newTiles = autofill(size[0], index, newTiles);
+    function classicStart(index: number) {
+        let newTiles = generation(index, size.Rows, genType);
+        newTiles = autofill(size.Rows, index, newTiles);
         tilesSet(newTiles);
-        setGameSt(GameStates.InProgress);
-        startTimer();
         let flags = 0;
         newTiles.forEach((square)=>{
             if(square.bomb) flags++;
         });
         changeFlags(flags);
+    }
+
+    function gameStart(index: number) {
+        if(mode===GameModes.Classic) classicStart(index);
+        else{//Schrodinger
+            tiles[index].uncover();
+            for(let i = 0; i<size.Rows*size.Rows; i++){
+                tiles[i].applyQuantumPhysics();
+            }
+        }
+        setGameSt(GameStates.InProgress);
+        startTimer();
     }
     function gameLose(){
         //Game lose function. Resets timer and flags
@@ -51,7 +63,10 @@ function Board({
 
 
     function tileAffect(tile: TileObject, index: number){
-        if(tile.bomb && !tile.covered){
+        if(mode===GameModes.Schrodinger && !tile.covered){
+            tile.observe();
+        }
+        else if(tile.bomb && !tile.covered){
             gameLose();
             return false;
         }
@@ -63,7 +78,7 @@ function Board({
             tilesSet(clonedTiles);
             return false;
         }
-        clonedTiles = autofill(size[0], index, clonedTiles);
+        if(mode === GameModes.Classic)clonedTiles = autofill(size.Rows, index, clonedTiles);
         if(gameCheck(clonedTiles)){
             setGameSt(GameStates.Won)
             changeFlags(FlagCountActions.Reset);
@@ -72,15 +87,19 @@ function Board({
         tilesSet(clonedTiles);
     }
 
+//APPLYING SIZING
     let sizeName = "board-sm";
-    switch (size[0]) {
-        case GameSizes.Medium[0]:
+    switch (size) {
+        case GameSizes.Medium:
             sizeName = "board-md";
             break;
-        case GameSizes.Large[0]:
+        case GameSizes.Large:
             sizeName = "board-lg";
             break;
     }
+
+
+//HTML ELEMENTS
     if(gameState===GameStates.Won){
         return <h1>YOU WON</h1>
     }
@@ -93,8 +112,8 @@ function Board({
             style={
                 {
                     // Inject as CSS variable
-                    "--row-length": size[0],
-                    "--tile-dimension": `${size[1]}px`
+                    "--row-length": size.Rows,
+                    "--tile-dimension": `${size.Pixels}px`
                 } as React.CSSProperties
             }
         >
@@ -106,7 +125,6 @@ function Board({
                     gameState={gameState}
                     tileAffect={tileAffect}
                     gameStart={gameStart}
-                    iSize={size[1]}
                 ></Tile>
             ))}
         </div>

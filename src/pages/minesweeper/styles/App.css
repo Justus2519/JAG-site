@@ -1,4 +1,9 @@
+
+
 .game {
+  left:50%;
+  position:absolute;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   height: 600px;
@@ -56,9 +61,11 @@ button {
 }
 
 .popup-inner {
+  position: absolute;
+  padding:2px;
   transform: translate(0%, 50%);
   width:50%;
-  height:50%;
+  min-height:20%;
   background-color: white;
 }
 .popup-p {
