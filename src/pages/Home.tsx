@@ -9,7 +9,7 @@ function Home(){
                         Hello, I'm Justus, a third year computer science student at McGill. Other than school I enjoy playing soccer, video games and going outside with friends.
                     </p>
                 </div>
-                <img src="/assets/Face.png" alt="avatar picture" className="avatar"></img>
+                <img src="/images/Face.png" alt="avatar picture" className="avatar"></img>
             </div>
             <div className="line-seperator"></div>
             <h2>
@@ -51,7 +51,7 @@ function Home(){
                 </details></li>
                 <li><details>
                         <summary>2</summary>
-                        2 has some notable accomplishments: The smallest prime number, even numbers, the number of suns on the planet Tatooine, Helium, binary etc.
+                        2 has some notable accomplishments: The smallest prime number, even numbers, the number of suns on the planet Tatooine, atomic number of a noble gas, binary etc.
                 </details></li>
                 <li><MathJaxContext><MathJax><details>
                         <summary>{"\\(\\sin^2(\\theta)+\\cos^2(\\theta) = 1\\)"}</summary>
@@ -63,15 +63,15 @@ function Home(){
                 <h1 className="box-title">Contact Me</h1>
                 <div className="box-text">
                     <div className="contact-box">
-                        <img src="/assets/gmail-icon.png" height="7%" width="7%" className="contact-img"></img>
+                        <img src="/images/gmail-icon.png" height="7%" width="7%" className="contact-img"></img>
                         <div>jglasgow.jag3@gmail.com</div>
                     </div>
                     <div className="contact-box">
-                        <img src="/assets/github-logo.png" height="7%" width="7%" className="contact-img"></img>
+                        <img src="/images/github-logo.png" height="7%" width="7%" className="contact-img"></img>
                         <a href="https://github.com/Justus2519">Justus2519</a>
                     </div>
                     <div className="contact-box">
-                        <img src="/assets/LinkedIn_logo.png" height="7%" width="7%" className="contact-img"></img>
+                        <img src="/images/LinkedIn_logo.png" height="7%" width="7%" className="contact-img"></img>
                         <a href="https://www.linkedin.com/in/justus-glasgow-5b3b0a344/">Justus Glasgow</a>
                     </div>
                 </div>
