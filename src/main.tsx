@@ -27,7 +27,7 @@ const router = createBrowserRouter([
                     <Outlet />
                 </main>
                 <footer>
-                    <p>2025</p>
+                    <p>2026</p>
                 </footer>
             </>
         ),

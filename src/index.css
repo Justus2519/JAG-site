@@ -59,13 +59,14 @@ nav {
 
 
 .about-box {
-  transform: translateX(10%);
+  
   display: flex;
   flex-direction: row;
   align-items:center;
   max-width: 50vw;
   background: linear-gradient(100deg, rgb(150, 150, 150), rgb(158, 158, 158));
   padding-right:2%;
+  border-radius:2px;
 }
 .box-title {
   background: linear-gradient(200deg, rgb(94, 94, 94), rgb(74, 74, 74));
@@ -104,6 +105,7 @@ ol {
   background: linear-gradient(100deg, rgb(150, 150, 150), rgb(158, 158, 158));
   width:60%;
   padding: 8px 35px;
+  border-radius:2px;
 }
 ol > li {
   width: 40%;
@@ -127,6 +129,25 @@ summary {
   text-wrap: nowrap;
 }
 
+/*PROJECTS*/
+.project-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin:auto;
+  max-width:60vw;
+  background: linear-gradient(100deg, rgb(150, 150, 150), rgb(158, 158, 158));
+  padding:2px;
+  border-radius:2px;
+}
+
+.project {
+  background: linear-gradient(130deg, #292952, #1e1e2f);
+  max-width:20vw;
+  padding:2px;
+  border-radius:4px;
+}
+
 /*LINE*/
 .line-seperator {
   transform: translate(50px);
@@ -141,6 +162,7 @@ summary {
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-radius:2px;
 }
 
 /* Footer */

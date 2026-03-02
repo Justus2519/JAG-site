@@ -11,6 +11,24 @@ function Home(){
                 </div>
                 <img src="/images/Face.png" alt="avatar picture" className="avatar"></img>
             </div>
+
+            <div className="line-seperator"></div>
+            <h1>Projects</h1>
+            <div className="project-content">
+                <div className="project">
+                    <h2>Minesweeper</h2>
+                    <p>The classic minesweeper game.</p>
+                </div>
+                <div className="project">
+                    <h2>Python Snake</h2>
+                    <p>The classic Snake game remade using Python</p>
+                </div>
+                <div className="project">
+                    <h2>PiBot</h2>
+                    <p>A personal discord bot for variable fun.</p>
+                </div>
+            </div>
+
             <div className="line-seperator"></div>
             <h2>
                 My Top 10 Favourite Numbers, Numerical Constants or Identities
@@ -58,6 +76,7 @@ function Home(){
                         A classic.
                 </details></MathJax></MathJaxContext></li>
             </ol>
+
             <div className="line-seperator"></div>
             <div className="about-box">
                 <h1 className="box-title">Contact Me</h1>
