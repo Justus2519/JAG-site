@@ -94,7 +94,7 @@ function Home(){
                         <div>jglasgow.jag3@gmail.com</div>
                     </div>
                     <div className="contact-box">
-                        <img src="/images/github-logo.png" height="7%" width="7%" className="contact-img"></img>
+                        <img src="/images/github-logo.png" height="7%" width="7%" className="contact-img"/>
                         <a href="https://github.com/Justus2519">Justus2519</a>
                     </div>
                     <div className="contact-box">

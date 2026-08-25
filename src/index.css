@@ -12,6 +12,12 @@ body {
   line-height: 1.6;
   color: #222;
 }
+a {
+  color: white;
+}
+a:hover {
+  color:#3030bb;
+}
 
 
 
@@ -75,7 +81,7 @@ nav {
 }
 .box-title {
   background: linear-gradient(130deg, #292952, #1e1e2f);
-  height:100%;
+  height:fit-content;
   padding:0px 7px;
   align-self: stretch;
   border-right: ridge 4px #c7c7c7;
