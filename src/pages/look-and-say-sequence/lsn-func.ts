@@ -1,6 +1,6 @@
 export default function lnss(n: number){
     if(n>50){
-        return "Please enter a term that's less  or equal to 50"
+        return "Please enter a term that's less  or equal to 50";
     }
     let pattern: number[] = [1];
     for(let i = 0; i<n; i++){

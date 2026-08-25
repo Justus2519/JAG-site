@@ -1,4 +1,6 @@
 import {MathJaxContext, MathJax} from "better-react-mathjax";
+import { Link } from "react-router-dom";
+
 function Home(){
     return (
         <div>
@@ -6,32 +8,38 @@ function Home(){
                 <h1 className="box-title">About</h1>
                 <div className="box-text">
                     <p>
-                        Hello, I'm Justus, a third year computer science student at McGill. Other than school I enjoy playing soccer, video games and going outside with friends.
+                        Hello, I'm Justus, a fourth year computer science student at McGill University. Other than school I enjoy playing soccer, video games, and going outside with friends.
                     </p>
                 </div>
                 <img src="/images/Face.png" alt="avatar picture" className="avatar"></img>
             </div>
 
             <div className="line-seperator"></div>
-            <h1>Projects</h1>
+            <h1 style={{textAlign: "center"}}>Projects</h1>
             <div className="project-content">
                 <div className="project">
                     <h2>Minesweeper</h2>
+                    <a href="/resume"><img src="/images/minesweeperLogo.png" alt="minesweeper logo" className="project-img"></img></a>
                     <p>The classic minesweeper game.</p>
+                    <Link className="project-link" to="/resume">More info{">>"}</Link>
                 </div>
                 <div className="project">
                     <h2>Python Snake</h2>
-                    <p>The classic Snake game remade using Python</p>
+                    <a href="/resume"><img src="/images/snakelogo.png" alt="snake logo" className="project-img"></img></a>
+                    <p>The classic snake game remade using Python.</p>
+                    <Link className="project-link" to="/resume">More info{">>"}</Link>
                 </div>
                 <div className="project">
-                    <h2>PiBot</h2>
-                    <p>A personal discord bot for variable fun.</p>
+                    <h2>jaggert.org</h2>
+                    <a href="/resume"><img src="/images/weblogo.png" alt="website logo" className="project-img"></img></a>
+                    <p>My foray into web development.</p>
+                    <Link className="project-link" to="/resume">More info{">>"}</Link>
                 </div>
             </div>
 
             <div className="line-seperator"></div>
             <h2>
-                My Top 10 Favourite Numbers, Numerical Constants or Identities
+                My Top 10 Favourite Numbers, Numerical Constants and Identities
             </h2>
             
             <ol type="1">

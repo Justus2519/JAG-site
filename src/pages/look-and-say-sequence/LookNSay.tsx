@@ -13,7 +13,7 @@ function LookNSay(){
                 <div className="lns-explain">
                     <p>
                         The look and say sequence is a fun recursive sequence you may have heard about. I was introduced to the sequence through being shown the first three terms and trying to generate the next one. The first few terms are on the right, I invite you to do the same. 
-                        <br/><br/>Starting from the string "1", you generate the next term by saying out loud the amount of the same number appearing in succession. In this case we see one "1" so the next term will be "11". And so on. 
+                        <br/><br/>Explanation: starting from the string "1", you generate the next term by saying out loud the amount of the same number appearing in succession. In this case we see one "1" so the next term will be "11". And so on. 
                     </p>
                 </div>
                 <div className="lns-example">
