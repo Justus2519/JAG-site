@@ -19,7 +19,7 @@ const router = createBrowserRouter([
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/minesweeper">Minesweeper</Link></li>
                             <li><Link to="/look-n-say">Look & Say Sequence</Link></li>
-                            <li><Link to="/resume">Resume</Link></li>
+                            <li><Link to="/resume">Portfolio</Link></li>
                         </ul>
                     </nav>
                 </header>

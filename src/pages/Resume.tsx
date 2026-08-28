@@ -4,7 +4,7 @@ function Resume(){
     const jagLink = "https://github.com/Justus2519/JAG-site";
     return (
         <div>
-            Come back at a later date when I get around to this!
+            <p style={{fontSize:"3vh"}}>You can download my <a href="/jg-cv-2026.pdf" download>resume here</a>. My public projects are listed below.</p>
             <h1>
                 Projects:
             </h1>
