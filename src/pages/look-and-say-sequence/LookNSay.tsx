@@ -23,12 +23,12 @@ function LookNSay(){
                 </div>
             </div>
             <div className="input-box">
-                <input type="number" placeholder={`${n}`} onChange={e => setN(Number(e.target.value))}></input>
+                <input type="number" placeholder={`${n}`} onChange={e => setN(Number(e.target.value))}/>
                 <button onClick={()=>setTerm(lnss(n))}>Generate</button>
             </div>
             <div className="number-box">{term}</div>
         </div>
-    )
+    );
 }
 
 export default LookNSay;

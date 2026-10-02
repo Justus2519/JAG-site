@@ -77,11 +77,11 @@ function Home(){
                 </details></li>
                 <li><details>
                         <summary>2</summary>
-                        2 has some notable accomplishments: The smallest prime number, even numbers, the number of suns on the planet Tatooine, atomic number of a noble gas, binary etc.
+                        2 has some notable accomplishments: The smallest prime number, even numbers, the number of suns on the planet Tatooine, atomic number of a noble gas, the base for binary etc.
                 </details></li>
                 <li><MathJaxContext><MathJax><details>
                         <summary>{"\\(\\sin^2(\\theta)+\\cos^2(\\theta) = 1\\)"}</summary>
-                        A classic.
+                        A day one classic.
                 </details></MathJax></MathJaxContext></li>
             </ol>
 
